@@ -102,10 +102,22 @@ $ ./bazel-0.26.1-installer-darwin-x86_64.sh --user
 
 Input the paths of Python and choose No for other installation choices
 
-5. build
+5. Build
 
 ```
 $ bazel build --config=opt //tensorflow/tools/pip_package:build_pip_package
+```
+
+6. Build pip package
+
+```
+$ ./bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tensorflow_pkg
+```
+
+7. Install pip package
+
+```
+$ pip install /tmp/tensorflow_pkg/tensorflow-1.15.2-cp37-cp37m-macosx_10_15_x86_64.whl
 ```
 
 Have fun!

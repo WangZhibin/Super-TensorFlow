@@ -1,6 +1,6 @@
 # Super-TensorFlow
 
-This is the my own TensorFlow Edition that is optimized and built from source.
+This is the my own TensorFlow Edition (1.15.2) that is optimized and built from source.
 
 ## Install on macOS
 

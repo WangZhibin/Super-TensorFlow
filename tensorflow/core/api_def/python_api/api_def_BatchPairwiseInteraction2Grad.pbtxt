@@ -1,0 +1,4 @@
+op {
+  graph_op_name: "BatchPairwiseInteraction2Grad"
+  visibility: HIDDEN
+}

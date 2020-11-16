@@ -1,0 +1,96 @@
+# Copyright 2020 the deepx authors.
+# Author: Yafei Zhang (kimmyzhang@tencent.com)
+#
+
+cc_library(
+    name='sage2',
+    linkstatic=True,
+    includes=[
+        'include',
+    ],
+    deps=[
+        ':sage2_asm',
+        ':sage2_c',
+        ':sage2_cc',
+    ],
+    visibility=[
+        '//visibility:public',
+    ],
+)
+
+cc_library(
+    name='internal_hdr',
+    linkstatic=True,
+    hdrs=glob([
+        'src/**/*.h',
+    ]),
+    visibility=[
+        '//visibility:private',
+    ],
+)
+
+cc_library(
+    name='sage2_asm',
+    linkstatic=True,
+    srcs=glob([
+        'src/**/*.S',
+    ]),
+    includes=[
+        'include',
+    ],
+    copts=[
+        '-Itensorflow/core/lib/sage2/src',
+    ],
+    deps=[
+        ':internal_hdr',
+    ],
+    visibility=[
+        '//visibility:private',
+    ],
+)
+
+cc_library(
+    name='sage2_c',
+    linkstatic=True,
+    srcs=glob([
+        'src/**/*.c',
+    ]),
+    includes=[
+        'include',
+    ],
+    copts=[
+        '-Itensorflow/core/lib/sage2/src',
+        '-std=c11',
+        '-DNDEBUG',
+    ],
+    deps=[
+        ':internal_hdr',
+        ':sage2_asm',
+    ],
+    visibility=[
+        '//visibility:private',
+    ],
+)
+
+cc_library(
+    name='sage2_cc',
+    linkstatic=True,
+    srcs=glob([
+        'src/**/*.cc',
+    ]),
+    includes=[
+        'include',
+    ],
+    copts=[
+        '-Itensorflow/core/lib/sage2/src',
+        '-std=c++11',
+        '-DNDEBUG',
+    ],
+    deps=[
+        ':internal_hdr',
+        ':sage2_asm',
+    ],
+    visibility=[
+        '//visibility:private',
+    ],
+)

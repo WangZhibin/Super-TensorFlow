@@ -80,14 +80,19 @@ pip install google
 pip install protobuf
 pip install google-cloud
 pip install keras_preprocessing
-
 ```
 
 3. Install Bazel
 
 https://github.com/bazelbuild/bazel/releases/tag/0.26.1
 
+download this file:
+
+```
 bazel-0.26.1-installer-darwin-x86_64.sh
+```
+
+then
 
 ```
 $ chmod +x bazel-0.26.1-installer-darwin-x86_64.sh
@@ -100,7 +105,7 @@ $ ./bazel-0.26.1-installer-darwin-x86_64.sh --user
 ./configure
 ```
 
-Input the paths of Python and choose No for other installation choices
+Input the paths of Python and choose `No` for other installation choices
 
 5. Build
 
@@ -114,10 +119,10 @@ $ bazel build --config=opt //tensorflow/tools/pip_package:build_pip_package
 $ ./bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tensorflow_pkg
 ```
 
-7. Install pip package
+7. Install TensorFlow through pip package
 
 ```
 $ pip install /tmp/tensorflow_pkg/tensorflow-1.15.2-cp37-cp37m-macosx_10_15_x86_64.whl
 ```
 
-Have fun!
+Enjoy!
